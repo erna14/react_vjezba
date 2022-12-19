@@ -1,0 +1,80 @@
+.container {
+    max-width: 450px;
+    padding: 0 20px;
+    margin: 170px auto;
+}
+
+.auth_form {
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.title_box {
+    height: 90px;
+    background: #1557c0;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth_form form {
+    padding: 30px 30px 30px 30px;
+}
+
+.auth_input {
+    height: 45px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+input {
+    height: 35px;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 10px;
+    border: 1px solid #a19d9d;
+    font-size: 16px;
+}
+
+.auth_action {
+    margin-top: 40px;
+}
+
+button {
+    color: #fff;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.6rem;
+    background: #196bde;
+    border: 1px solid #196bde;
+    cursor: pointer;
+}
+
+button:hover,
+button:active {
+    background: #13459c;
+    border: 1px solid #13459c;
+}
+
+.signup_option {
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.signup_option a {
+    color: #13459c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
