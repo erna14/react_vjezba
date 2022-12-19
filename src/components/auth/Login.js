@@ -1,14 +1,14 @@
-import React from "react";
-import Form from "../Layout/Form";
+import React, { useEffect } from 'react';
+import Form from '../Layout/Form';
 
 function Login() {
     return (
         <Form
             signUp_option={true}
-            title={"Login Form"}
+            title={'Login Form'}
             value={'login'}
         />
-    )
+    );
 }
 
-export default Login
+export default Login;

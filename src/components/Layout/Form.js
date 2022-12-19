@@ -1,26 +1,37 @@
-import React, {useState} from "react";
-import classes from "./Form.module.css";
-import SignUp from "../auth/SignUp";
+import React, { useState } from 'react';
+import classes from './Form.module.css';
+import { apiCall } from '../../utils/api';
 
 
 function Form(props) {
-    const signUpOption = props.signUp_option
+    const isLoginPage = props.signUp_option;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const usernameInputChangeHandler = event => {
-        setUsername(event.target.value)
-    }
+        setUsername(event.target.value);
+    };
 
     const passwordInputChangeHandler = event => {
-        setPassword(event.target.value)
-    }
+        setPassword(event.target.value);
+    };
 
     const formSubmissionHandler = event => {
         event.preventDefault();
 
-        console.log(username, password)
-    }
+        const requestBody = { username, password };
+
+
+        let url = isLoginPage ? '.../login' : '.../register';
+
+        apiCall(url, 'POST', requestBody)
+            .then((response) => {
+                return response.json();
+            })
+            .then((jsonResponse) => {
+                console.log(jsonResponse);
+            });
+    };
 
     return (
         <div className={classes.container}>
@@ -31,15 +42,15 @@ function Form(props) {
                 <form onSubmit={formSubmissionHandler}>
                     <input
                         type="hidden"
-                        name='path'
+                        name="path"
                         value={props.value}
                     />
                     <div className={classes.auth_input}>
                         <label>Username</label>
                         <input
-                            name='username'
-                            type='text'
-                            placeholder='Enter your username'
+                            name="username"
+                            type="text"
+                            placeholder="Enter your username"
                             onChange={usernameInputChangeHandler}
                             value={username}
                         />
@@ -47,17 +58,17 @@ function Form(props) {
                     <div className={classes.auth_input}>
                         <label>Password</label>
                         <input
-                            name='password'
-                            type='password'
-                            placeholder='Enter your password'
+                            name="password"
+                            type="password"
+                            placeholder="Enter your password"
                             onChange={passwordInputChangeHandler}
                             value={password}
                         />
                     </div>
                     <div className={classes.auth_action}>
-                        <button type='submit'> Login </button>
+                        <button type="submit"> {isLoginPage ? 'Login' : 'Sign Up'} </button>
                     </div>
-                    {signUpOption && (
+                    {isLoginPage && (
                         <div className={classes.signup_option}>
                             <span>
                                 Not a member? <a href={'http://localhost:3000/signUp'}> Sign Up </a>
@@ -65,7 +76,7 @@ function Form(props) {
                         </div>
                     )}
 
-                    {!signUpOption && (
+                    {!isLoginPage && (
                         <div className={classes.signup_option}>
                             <span>
                                 Already a member? <a href={'http://localhost:3000/login'}> Login </a>
@@ -76,7 +87,7 @@ function Form(props) {
             </div>
         </div>
 
-    )
+    );
 }
 
-export default Form
+export default Form;
