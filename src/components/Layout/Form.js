@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import classes from './Form.module.css';
+import React, {useContext, useState} from 'react';
+import classes from '../UI/Form.module.css';
 import { apiCall } from '../../utils/api';
 import {useNavigate} from "react-router-dom";
+import {UserContext} from "../Help/Context";
 
 function Form(props) {
     const isLoginPage = props.signUp_option;
@@ -10,6 +11,8 @@ function Form(props) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const {user, setUser} = useContext(UserContext)
 
     const usernameInputChangeHandler = event => {
         setUsername(event.target.value);
@@ -36,11 +39,19 @@ function Form(props) {
             })
             .then((jsonResponse) => {
                 console.log(jsonResponse);
+                setUser({ email })
+                console.log(user)
+
+                if (isLoginPage) {
+                    localStorage.setItem('userData', JSON.stringify(jsonResponse))
+                    console.log(localStorage.getItem('userData'))
+                }
+
+                let redirectUrl = !isLoginPage ? '/login' : '/homePage';
+                navigate(redirectUrl)
+
             })
             .catch((err)=> console.log(err));
-
-        let redirectUrl = !isLoginPage ? '/login' : '/homePage';
-        navigate(redirectUrl)
     };
 
     return (
@@ -67,19 +78,7 @@ function Form(props) {
                             />
                         </div>
                     ) : ''}
-                    
-                    {/*{!isLoginPage ? (
-                        <div className={classes.auth_input}>
-                            <label>Email</label>
-                            <input
-                                name="email"
-                                type="email"
-                                placeholder="Enter your email"
-                                onChange={emailInputChangeHandler}
-                                value={email}
-                            />
-                        </div>
-                    ) : ''}*/}
+
                     <div className={classes.auth_input}>
                         <label>Email</label>
                         <input

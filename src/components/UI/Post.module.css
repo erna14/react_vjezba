@@ -1,0 +1,90 @@
+
+.post {
+    background: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+.post .header {
+    margin-bottom: 5px;
+}
+.post .header .details h3{
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+.post .header .details small {
+    color: gray;
+}
+
+.post .content {
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+
+.post .actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    color: #196bde;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/*
+.post .actions i {
+    cursor: pointer;
+}*/
+
+.post .likes_info{
+    color: #424141;
+}
+
+.post .view_comments {
+    color: gray;
+    margin: 7px 0;
+}
+
+.post .action_buttons {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.post .action_buttons .delete_btn {
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 0.6rem 1.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    right: 10px;
+    width: 120px;
+}
+
+.post .action_buttons .delete_btn:hover,
+.post .action_buttons .delete_btn:active {
+    background: #d51b1b;
+    border: 1px solid #d51b1b;
+}
+
+.post .action_buttons .update_btn {
+    color: white;
+    background-color: #42a842;
+    border: 1px solid #42a842;
+    border-radius: 20px;
+    padding: 0.6rem 1.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 120px;
+}
+
+.post .action_buttons .update_btn:hover,
+.post .action_buttons .update_btn:active {
+    background-color: #308330;
+    border: 1px solid #308330;
+}

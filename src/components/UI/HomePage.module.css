@@ -1,0 +1,19 @@
+
+*{
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    /*background: #e1ecf7;*/
+    /*overflow: hidden;*/
+}
+
+.container {
+    position: relative;
+    top: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 15vw auto 20vw;
+    column-gap: 2rem;
+}
+
